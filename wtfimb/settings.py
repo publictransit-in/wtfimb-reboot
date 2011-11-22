@@ -1,4 +1,4 @@
-# Django settings for bestroutes project.
+# Django settings for wtfimb-reboot project.
 import os
 from os.path import join
 
@@ -17,8 +17,8 @@ JSON_DEBUG = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'bestroutes',                      # Or path to database file if using sqlite3.
-        'USER': 'sanj',                      # Not used with sqlite3.
+        'NAME': 'wtfimb-reboot',                      # Or path to database file if using sqlite3.
+        'USER': 'wtfimb',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
@@ -81,7 +81,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'bestroutes.urls'
+ROOT_URLCONF = 'wtfimb.urls'
 
 TEMPLATE_DIRS = (
     join(PROJECT_ROOT, 'templates'),
