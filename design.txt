@@ -1,0 +1,50 @@
+# wtfimb Reboot
+
+## Introduction
+
+This is busroutes.in done right, but not so right that it'll never ship. It is designed with the following goals in mind:
+
+1. Make it easy for anyone to start an instance for their own city.
+2. Make the entire data *user editable*, so that minor edits are absolutely painless.
+3. Have an API + several clients (web/mobile/sms), so that work does not get repeated
+4. Make it easy to keep data in sync with official sources, in cases where official sources are actually provided
+
+We've picked **GTFS** to be the standard data import/export format, and **GeoJSON** to be the API transport format.
+
+## API
+
+The API provides read/write access to the data, along with routing information. People need to be logged in to make write calls to the API. The API design should be as minimal as possible, and hide all implementation details.
+
+POST login
+    In: Username/Password. 
+    Out: An access token (valid for a day or so?) on success. Should be included with all future requests
+    Alternative: Cookie based logins too!
+POST logout
+    In: An access token
+    Logs out the user by invalidating the access token
+GET stop?id=$id
+    In: Stop ID
+    Out: Returns a FeatureList containing a single point that is the stop of this particular id
+GET stop?name=$name
+    In: Stop Name
+    Out: Returns a FeatureList containing possibly multiple points that have a name that matches the inbuilt name
+POST stop?id=$id
+    In: A Point GeoJSON that should be used to populate given ID
+    Out: Id of stop updated
+    Leave Id empty to create
+GET route?id=$id
+    In: Route ID
+    Out: Returns a FeatureList containing a single point that is the stop of this particular id
+GET stop?name=$name
+    In: Stop Name
+    Out: Returns a FeatureList containing possibly multiple points that have a name that matches the inbuilt name
+POST stop?id=$id
+    In: A Point GeoJSON that should be used to populate given ID
+    Out: Id of stop updated
+    Leave Id empty to create
+GET/POST route?id=$id&name=$name
+    FeatureList of Points that are part of the given Route (identified by id or name)
+GET path?from=$from_id&$to=$to_id
+    FeatureList of GeometryCollections that are changeoverpoints
+GET stopsnear?lat=$lat&lon=$lon&distance=$dist&type=$type
+    FeatureList of Points that represent stops near the given location
