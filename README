@@ -1,20 +1,20 @@
-bestroutes
+wtfimb-reboot
 
 Get:
-    cd bestroutes
+    cd wtfimb-reboot
     virtualenv .
     pip -E . install -r requirements.txt
 
 Develop:
-    create bestroutes/local_settings.py
+    create wtfimb-reboot/local_settings.py
 
     . bin/activate
-    cd bestroutes
+    cd wtfimb-reboot
     python manage.py shell
 
     python manage.py runserver
 
 Deploy:
-    create bestroutes/local_settings.py
+    create wtfimb-reboot/local_settings.py
 
-    create /etc/apache2/sites-availavle/sitename.conf
+    create /etc/apache2/sites-available/sitename.conf
