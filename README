@@ -6,15 +6,15 @@ Get:
     pip -E . install -r requirements.txt
 
 Develop:
-    create wtfimb-reboot/local_settings.py
+    create wtfimb/local_settings.py
 
     . bin/activate
-    cd wtfimb-reboot
+    cd wtfimb
     python manage.py shell
 
     python manage.py runserver
 
 Deploy:
-    create wtfimb-reboot/local_settings.py
+    create wtfimb/local_settings.py
 
     create /etc/apache2/sites-available/sitename.conf
