@@ -1,3 +1,11 @@
 *~
 *.swp
 *.py[co]
+
+# Packages
+src
+bin
+lib
+local
+build
+include
