@@ -1,0 +1,20 @@
+bestroutes
+
+Get:
+    cd bestroutes
+    virtualenv .
+    pip -E . install -r requirements.txt
+
+Develop:
+    create bestroutes/local_settings.py
+
+    . bin/activate
+    cd bestroutes
+    python manage.py shell
+
+    python manage.py runserver
+
+Deploy:
+    create bestroutes/local_settings.py
+
+    create /etc/apache2/sites-availavle/sitename.conf
